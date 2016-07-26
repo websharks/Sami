@@ -14,7 +14,7 @@ namespace Sami;
 use PhpParser\Lexer;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
-use PhpParser\ParserFactory as ParserFactory;
+use PhpParser\ParserFactory as PhpParserFactory;
 use PhpParser\PrettyPrinter\Standard as PrettyPrinter;
 use Pimple\Container;
 use Sami\Parser\ClassTraverser;
