@@ -145,12 +145,26 @@
             <tr>
                 <td colspan="2">
                   <big><span class="label label-default">Underlying Utility</span></big> <i class="glyphicon glyphicon-hand-right"></i>
-                  {% if tag[0] matches '/\\(\\)/u' %}
-                    <a href="../../{{ tag[0]|replace({'::': '.html#method_', '()': ''})|raw }}">{{ tag[0]|raw }}</a>
-                  {% elseif tag[0] matches '/\\:\\:\\$/u' %}
-                    <a href="../../{{ tag[0]|replace({'::$': '.html#property_'})|raw }}">{{ tag[0]|raw }}</a>
-                  {% elseif tag[0] matches '/\\{\\}/u' %}
-                    <a href="../../{{ tag[0]|replace({'::': '.html', '{}': ''})|raw }}">{{ tag[0]|raw }}</a>
+                  {% if method.class matches '/\\\\CoreOnly(?:\\\\|$)/' %}
+
+                      {% if tag[0] matches '/\\(\\)/u' %}
+                        <a href="../../../{{ tag[0]|replace({'::': '.html#method_', '()': '', '/': '\\'})|raw }}">{{ tag[0]|raw }}</a>
+                      {% elseif tag[0] matches '/\\:\\:\\$/u' %}
+                        <a href="../../../{{ tag[0]|replace({'::$': '.html#property_', '/': '\\'})|raw }}">{{ tag[0]|raw }}</a>
+                      {% elseif tag[0] matches '/\\{\\}/u' %}
+                        <a href="../../../{{ tag[0]|replace({'::': '.html', '{}': '', '/': '\\'})|raw }}">{{ tag[0]|raw }}</a>
+                      {% endif %}
+
+                  {% else %}
+
+                    {% if tag[0] matches '/\\(\\)/u' %}
+                      <a href="../../{{ tag[0]|replace({'::': '.html#method_', '()': '', '/': '\\'})|raw }}">{{ tag[0]|raw }}</a>
+                    {% elseif tag[0] matches '/\\:\\:\\$/u' %}
+                      <a href="../../{{ tag[0]|replace({'::$': '.html#property_', '/': '\\'})|raw }}">{{ tag[0]|raw }}</a>
+                    {% elseif tag[0] matches '/\\{\\}/u' %}
+                      <a href="../../{{ tag[0]|replace({'::': '.html', '{}': '', '/': '\\'})|raw }}">{{ tag[0]|raw }}</a>
+                    {% endif %}
+
                   {% endif %}
                 </td>
             </tr>
