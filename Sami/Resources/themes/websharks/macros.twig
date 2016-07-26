@@ -42,13 +42,13 @@
 
 {% macro source_link(project, class) -%}
     {% if class.sourcepath %}
-        (<a href="{{ class.sourcepath }}">View source</a>)
+        (<a target="_blank" href="{{ class.sourcepath }}">View source</a>)
     {%- endif %}
 {%- endmacro %}
 
 {% macro method_source_link(method) -%}
     {% if method.sourcepath %}
-        <a href="{{ method.sourcepath }}">line {{ method.line|raw }}</a>
+        <a target="_blank" href="{{ method.sourcepath }}">line {{ method.line|raw }}</a>
     {%- else %}
         line {{ method.line|raw }}
     {%- endif %}

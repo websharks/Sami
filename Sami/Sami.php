@@ -22,6 +22,7 @@ use Sami\Parser\ClassVisitor;
 use Sami\Parser\CodeParser;
 use Sami\Parser\DocBlockParser;
 use Sami\Parser\Filter\DefaultFilter;
+use Sami\Parser\Filter\TrueFilter;
 use Sami\Parser\NodeVisitor;
 use Sami\Parser\Parser;
 use Sami\Parser\ParserContext;
@@ -71,6 +72,8 @@ class Sami extends Container
                 'default_opened_level' => $sc['default_opened_level'],
                 'theme' => $sc['theme'],
                 'title' => $sc['title'],
+                'icon' => $sc['icon'],
+                'favicon' => $sc['favicon'],
                 'source_url' => $sc['source_url'],
                 'source_dir' => $sc['source_dir'],
             ));
@@ -121,7 +124,8 @@ class Sami extends Container
         };
 
         $this['filter'] = function () {
-            return new DefaultFilter();
+            return new TrueFilter();
+            // return new DefaultFilter();
         };
 
         $this['store'] = function () {
