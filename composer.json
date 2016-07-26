@@ -1,5 +1,5 @@
 {
-    "name": "sami/sami",
+    "name": "websharks/sami",
     "type": "application",
     "description": "Sami, an API documentation generator",
     "keywords": ["phpdoc"],
